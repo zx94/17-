@@ -21,42 +21,42 @@ public class ProductService implements IProductService {
 	IProductDAO dao = sqlSession.getMapper(IProductDAO.class);
 	ICategoryDAO dao1 = sqlSession.getMapper(ICategoryDAO.class);
 
-	// 查所有的书
+	// 1.查所有的酒
 	public List<Product> getAll() {
 		List<Product> list = dao.selectAll();
 		MyBatisUtil.close(sqlSession);
 		return list;
 	}
 
-	// 1.查所有的书，按上架时间排序(新书)
+	// 2.查所有的酒，按上架时间排序(新酒)
 	public List<Product> getProductByaddtime() {
 		List<Product> list = dao.selectProductByaddtime();
 		MyBatisUtil.close(sqlSession);
 		return list;
 	}
-
-	// 2.查所有的书，按销量排序（热卖）
+	
+	// 3.查所有的酒，按销量排序（热卖）
 	public List<Product> getProductBysale() {
 		List<Product> list = dao.selectProductBysale();
 		MyBatisUtil.close(sqlSession);
 		return list;
 	}
 
-	// 3.查所有的书，按上架时间排序，按销量排序(新书热卖)
+	// 4.查所有的酒，按上架时间排序，按销量排序(新酒热卖)
 	public List<Product> getProductByaddtimeAndsale() {
 		List<Product> list = dao.selectProductByaddtimeAndsale();
 		MyBatisUtil.close(sqlSession);
 		return list;
 	}
 
-	// 4.根据编辑推荐查（编辑推荐）
+	// 5.根据编辑推荐查（编辑推荐）
 	public List<Product> getProductByedit() {
 		List<Product> list = dao.selectProductByedit();
 		MyBatisUtil.close(sqlSession);
 		return list;
 	}
 
-	// 1.通过类别查,二级类别
+	// 6.通过类别查,二级类别
 	public Map<String, Object> getProductByCategory(Integer pid, Integer cid,
 			Integer currentPage) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -71,7 +71,7 @@ public class ProductService implements IProductService {
 				for (Category i : cat1) {
 					cids.add(i.getId());
 				}
-				// ②获得该pid下的所有cid下的所有书的数量
+				// ②获得该pid下的所有cid下的所有酒的数量
 				List<Integer> count = dao.selectProductCount(cids);
 				Integer productCount = 0;
 				for (Integer i : count) {
@@ -88,7 +88,7 @@ public class ProductService implements IProductService {
 				map.put("pageCount", pageCount);
 				map.put("product", product);
 			} else {// 父类id、子类id
-					// ①获得该cid下所有书的数量
+					// ①获得该cid下所有酒的数量
 				List<Integer> count = dao
 						.selectProductCount(Arrays.asList(cid));
 				Integer productCount = count.get(0);
@@ -114,11 +114,12 @@ public class ProductService implements IProductService {
 		return map;
 	}
 
-	// 1.通过id查
+	// 7.通过id查
 	public Product getProductById(Integer id) {
 		Product product = dao.selectProductById(id);
 		MyBatisUtil.close(sqlSession);
 		return product;
 	}
+	
 
 }

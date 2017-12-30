@@ -34,7 +34,7 @@ public class ProductAction extends ActionSupport{
 		this.product = product;
 	}
 	IProductService service=new ProductService();
-	//1.新书
+	//1.新酒
 	public String showProductByaddtime(){
 		 list = service.getProductByaddtime();
 		 return "content";//跳转到/main/content.jsp
@@ -44,7 +44,7 @@ public class ProductAction extends ActionSupport{
 		list = service.getProductBysale();
 		return "content";//跳转到/main/content.jsp
 	}
-	//3.新书热卖
+	//3.新酒热卖
 	public String getProductByaddtimeAndsale(){
 		list= service.getProductByaddtimeAndsale();
 		 return "content";//跳转到/main/content.jsp

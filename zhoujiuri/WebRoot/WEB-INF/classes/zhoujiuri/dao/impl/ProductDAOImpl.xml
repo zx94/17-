@@ -4,25 +4,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace='zhoujiuri.dao.IProductDAO'>
 	<sql id='selectProduct'>
-		select id,name,imagepath,author,publish,publishtime,price,dangdangprice,edition,printtime,
-		printnumber,isbn,words,page,openbook,paper,wrapper,editorrecommend,contentintroduct,authorintroduct,
-		menu,mediacomment,bookdigest,cutomerscore,stock,sale,putaway,status,editorrecommendstatus
+		select id,name,imagepath,author,publish,publishtime,price,dangdangprice,
+		sale,putaway,status,editorrecommendstatus
 	</sql>
 <!--查所有  -->
 	<select id='selectAll' resultType='Product'>
 		<include refid='selectProduct'></include> from product
 	</select>
-<!--新书  -->
+<!--新酒  -->
 	<select id='selectProductByaddtime' resultType='Product'>
 		<include refid='selectProduct'></include>
 		from (<include refid='selectProduct'></include> from product order by putaway desc) where rownum&lt;=4
 	</select>
-<!--热卖 -->
+	<!--热卖 -->
 	<select id='selectProductBysale' resultType='Product'>
 		<include refid='selectProduct'></include>
 		from (<include refid='selectProduct'></include> from product order by sale desc) where rownum&lt;=4
 	</select>
-<!--新书热卖  -->
+<!--新酒热卖  -->
 	<select id='selectProductByaddtimeAndsale' resultType='Product'>
 		<include refid='selectProduct'></include>
 		from (<include refid='selectProduct'></include> from product order by putaway,sale desc) where rownum&lt;=8
@@ -37,14 +36,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<include refid='selectProduct'></include>
 	from product where id=#{id}
 	</select>
-<!--根据类别查书的数量  -->
+<!--根据类别查酒的数量  -->
 	<select id='selectProductCount' resultType='int'>
 		select count(id) from product where cid in
 		<foreach collection='cids' item='cid' open='(' separator=',' close=')'>
 			#{cid}
 		</foreach>
 	</select>
-<!--根据类别显示所有书  -->
+<!--根据类别显示所有酒  -->
 	<select id='selectProductByCategory' resultMap='product'>
 		select * from
 		(<include refid='selectProduct'></include>,rownum rn from
@@ -55,6 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by putaway))
 		where rn between (#{currentPage}-1)*#{pageSize} and #{currentPage}*#{pageSize}
 	</select>
+	
 	<resultMap type="Product" id="product">
 		<id property="id" column="id" />
 		<result property="name" column="name" />
@@ -64,23 +64,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="publishtime" column="publishtime" />
 		<result property="price" column="price" />
 		<result property="dangdangprice" column="dangdangprice" />
-		<result property="edition" column="edition" />
-		<result property="printtime" column="printtime" />
-		<result property="printnumber" column="printnumber" />
-		<result property="isbn" column="isbn" />
-		<result property="words" column="words" />
-		<result property="page" column="page" />
-		<result property="openbook" column="openbook" />
-		<result property="paper" column="paper" />
-		<result property="wrapper" column="wrapper" />
-		<result property="editorrecommend" column="editorrecommend" />
-		<result property="contentintroduct" column="contentintroduct" />
-		<result property="authorintroduct" column="authorintroduct" />
-		<result property="menu" column="menu" />
-		<result property="mediacomment" column="mediacomment" />
-		<result property="bookdigest" column="bookdigest" />
-		<result property="cutomerscore" column="cutomerscore" />
-		<result property="stock" column="stock" />
 		<result property="sale" column="sale" />
 		<result property="putaway" column="putaway" />
 		<result property="status" column="status" />

@@ -9,7 +9,6 @@ public class Category implements Serializable{
 	private Integer id;
 	private String name;
 	private Integer parentid;
-	private Integer amount;
 	private List<Category> children;
 	public Category(){}
 	public Category(Integer id, String name, Integer parentid, Integer amount,
@@ -18,7 +17,6 @@ public class Category implements Serializable{
 		this.id = id;
 		this.name = name;
 		this.parentid = parentid;
-		this.amount = amount;
 		this.children = children;
 	}
 	public Integer getId() {
@@ -39,12 +37,6 @@ public class Category implements Serializable{
 	public void setParentid(Integer parentid) {
 		this.parentid = parentid;
 	}
-	public Integer getAmount() {
-		return amount;
-	}
-	public void setAmount(Integer amount) {
-		this.amount = amount;
-	}
 	public List<Category> getChildren() {
 		return children;
 	}
@@ -54,7 +46,7 @@ public class Category implements Serializable{
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + ", parentid="
-				+ parentid + ", amount=" + amount + ", children=" + children
+				+ parentid +  ", children=" + children
 				+ "]";
 	}
 	
