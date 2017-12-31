@@ -4,15 +4,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>当当图书 – 全球最大的中文网上书店</title>
-		<link href="<%=path %>/cart/css/book.css" rel="stylesheet" type="text/css" />
-		<link href="<%=path %>/cart/css/second.css" rel="stylesheet" type="text/css" />
-		<link href="<%=path %>/cart/css/secBook_Show.css" rel="stylesheet" type="text/css" />
-		<link href="<%=path %>/cart/css/shopping_vehicle.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src='../js/jquery-1.8.3.js'></script>
-	<script type="text/javascript">
+<head>
+
+<script type="text/javascript">
 	$(function(){
 		$(".change").live("click",function(){
 			
@@ -20,190 +16,87 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 	})
 </script>
-	</head>
-	<body>
-		<br />
-		<br />
-		<div class="my_shopping">
-			<img class="pic_shop" src="<%=path%>/cart/images/pic_myshopping.gif" />
 
-		</div>
+<!-- //引用 -->
+<jsp:include page="../cart/reference.jsp"/>
+
+</head>
+
+<!-- //顶部 -->
+<jsp:include page="../user/header.jsp"/>
+
+<body>
+   <div class="account-in">
+   	 <div class="container">
+		  <div class="check_box">	 
 		
-		<div id="div_choice" class="choice_merch">
-			<h2 id="cart_tips">
-				您已选购以下商品
-			</h2>
-			<div class="choice_bord">
-				<table class="tabl_buy" id="tbCartItemsNormal">
-					<tr class="tabl_buy_title">
-						<td class="buy_td_6">
-							<span>&nbsp;</span>
-						</td>
-						<td>
-							<span class="span_w1">商品名</span>
-						</td>
-						<td class="buy_td_5">
-							<span class="span_w2">市场价</span>
-						</td>
-						<td class="buy_td_4">
-							<span class="span_w3">当当价</span>
-						</td>
-						<td class="buy_td_1">
-							<span class="span_w2">数量</span>
-						</td>
-						<td class="buy_td_2">
-							<span>变更数量</span>
-						</td>
-						<td class="buy_td_1">
-							<span>删除</span>
-						</td>
-					</tr>
-					<tr class='objhide' >
-						<td colspan="8">
-							&nbsp;
-						</td>
-					</tr>
-					
-                      <!-- 购物列表开始 -->
-                      <s:iterator value='#session.cart.values()'>
-                      <s:if test="status=='yes'">
-						<tr class='td_no_bord'>
-							<td style='display: none'>
-								<s:property value='id'/>
-							</td>
-							<td class="buy_td_6">
-								<span class="objhide"><img /> </span>
-							</td>
-							<td>
-								<a href="<s:url value='/product/ProductAction_showProductById'/>?proid=<s:property value='id'/>" >
-								<s:property value='name'/>
-								</a>
-							</td>
-							<td class="buy_td_5">
-								<span class="c_gray"><s:property value='price'/></span>
-							</td>
-							<td class="buy_td_4">
-								&nbsp;&nbsp;
-								<span><s:property value='dangdangprice'/>
-								</span>
-							</td>
-							<td class="buy_td_1">
-								&nbsp;&nbsp;<s:property value='amount'/>
-							</td>
-
-							<td >
-								<input class="del_num" type="text" size="3" maxlength="4" id="num1" value=""/>
-								<a href="javascript:;" class="change">变更</a><span style='display: none'><s:property value='id'/></span>
-							</td>
-							<td>
-								<a href="<s:url value='/cart/CartAction_deleteCart'/>?productid=<s:property value='id'/>">删除</a>
-							</td>
-						</tr>
-						</s:if>
-						</s:iterator>
-						
-					
-					<!-- 购物列表结束 -->
-				</table>
-				<div class="choice_balance">
-					<div class="select_merch">
-						<a href='<s:url value='/main/index.jsp'/>'> 继续挑选商品&gt;&gt;</a>
-					</div>
-					<div class="total_balance">
-						<div class="save_total">
-							您共节省：
-							<span class="c_red"> ￥<span id="total_economy"><s:property value='totaleconomy'/></span>
-							</span>
-							<span id='total_vip_economy' class='objhide'> ( 其中享有优惠： <span
-								class="c_red"> ￥<span id='span_vip_economy'>0.00</span> </span>
-								) </span>
-							<span style="font-size: 14px">|</span>
-							<span class="t_add">商品金额总计：</span>
-							<span class="c_red_b"> ￥<span id='total_account'><s:property value='totalaccount'/></span>
-							</span>
-						</div>
-						<div id="balance" class="balance">
-							<a name='checkout' href='<s:url value='/order/OrderAction_showOrder'/>'> <img
-									src="<%=path %>/cart/images/butt_balance.gif" alt="结算" border="0" title="结算" />
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- 用户删除恢复区 -->
-
- 	
- 		<s:if test="cartstatus2!='nothing'">
-		<div id="divCartItemsRemoved" class="del_merch">
-			<div class="del_title">
-				您已删除以下商品，如果想重新购买，请点击“恢复”
-			</div>
+		<!-- //列表 -->
+		 
+		<div class="col-md-8 cart-items">
+			 <h1>我的购物车 </h1>
 			 <s:iterator value='#session.cart.values()'>
-			 <s:if test='status=="no"'>
-			<table class=tabl_del id=del_table>
-				<tbody>
+		 <s:if test="status=='yes'">
+			 <div class="cart-header">
+				 <a href="<s:url value='/cart/CartAction_deleteCart'/>?productid=<s:property value='id'/>" class="close1"></a>
+				   <div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							 <img src="${pageContext.request.contextPath}/user/images/<s:property value='imagepath'/>" class="img-responsive" alt=""/>
+						</div>
+					   <div class="cart-item-info">
+						<h3><a href="<s:url value='/product/ProductAction_showProductById'/>?proid=<s:property value='id'/>"><s:property value='name' /></a>
+						<span>产品编号 No: <s:property value='id'/></span></h3>
+						<ul class="qty">
+						    <li><p>优惠价 : <s:property value='dangdangprice'/></p></li>
+						    <li><p><del>原价 : <s:property value='price'/></del></p></li>
+							<li><p>数量 : <s:property value='amount'/></p></li>
+							<input class="del_num" type="text" size="3" maxlength="4" id="num1" value=""/>
+							<a href="javascript:;" class="change">变更</a><span style='display: none'><s:property value='id'/></span>
+						</ul>
+						<div class="delivery">
+							 <p>价格 : ￥<s:property value='dangdangprice*amount'/></p>
+							 <span>到货可能推迟2-3天</span>
+							 <div class="clearfix"></div>
+				        </div>	
+					   </div>
+					   <div class="clearfix"></div>
+				    </div>
+			 </div>	
+			 </s:if>
+		 </s:iterator>	
+		 </div>
+		 
+		 
+		 <!-- //总价 -->
+		 <div class="col-md-3 cart-total">
+			 <a class="continue" href="../main/index.jsp">继续购物</a>
+			 <div class="price-details">
+				 <h3>价格明细</h3>
+				 <span>总金额</span>
+				 <span class="total1"><s:property value='totalaccount+totaleconomy'/></span>
+				 <span>优惠</span>
+				 <span class="total1"><s:property value='totaleconomy'/></span>
+				 <span>送货费用</span>
+				 <span class="total1">---</span>
+				 <div class="clearfix"></div>				 
+			 </div>	
+			 <ul class="total_price">
+			   <li class="last_price"> <h4>总计</h4></li>	
+			   <li class="last_price">￥<span><s:property value='totalaccount'/></span></li>
+			   <div class="clearfix"> </div>
+			 </ul>
+			 <div class="clearfix"></div>
+			 <a class="order" name='checkout' href='<s:url value='/order/OrderAction_showOrder'/>'>结算</a>
+			</div>
+			<div class="clearfix"></div>
+	     </div>
+	  </div>
+   </div>
 
-				
-					<tr>
-						<td width="58" class=buy_td_6>
-							
-						</td>
-						<td width="365" class=t2>
-							<a href="<s:url value='/product/ProductAction_showProductById'/>?proid=<s:property value='id'/>"><s:property value='name'/></a>
-						</td>
-						<td width="106" class=buy_td_5>
-							<s:property value='price'/>
-						</td>
-						<td width="134" class=buy_td_4>
-							<span><s:property value='dangdangprice'/></span>
-						</td>
-						<td width="56" class=buy_td_1>
-							<a href="<s:url value='/cart/CartAction_huifuCart'/>?productid=<s:property value='id'/>">恢复</a>
-						</td>
-						<td width="16" class=objhide>
-							&nbsp;
-						</td>
-					</tr>
-				
+<!-- //底部 -->
+<jsp:include page="../user/foot.jsp"/>
 
-
-					<tr class=td_add_bord>
-						<td colspan=8>
-							&nbsp;
-						</td>
-					</tr>
-					
-
-
-				</tbody>
-			</table>
-			</s:if>
-			</s:iterator>
-		</div>
-		</s:if>
-		<br />
-		<br />
-		<br />
-		<br />
-		<!--页尾开始 -->
-		
-<link href="<%=path%>/cart/css/public_footer.css" rel="stylesheet" type="text/css" />
-<div class="public_footer">
-	<div class="public_footer_bottom">
-		<div class="public_footer_icp" style="line-height: 48px;">
-			Copyright (C) 当当网 2004-2008, All Rights Reserved
-			<a href="#" target="_blank"><img
-					src="<%=path%>/cart/images/validate.gif" border="0" align="middle" /> </a>
-			<a href="#" target="_blank" style="color: #666;">京ICP证041189号</a>
-		</div>
-	</div>
-</div>
-
-		<!--页尾结束 -->
-	</body>
-</html>
+</body>
+</html>		
 
 
 

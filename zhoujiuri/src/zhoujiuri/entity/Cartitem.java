@@ -7,16 +7,20 @@ import org.apache.ibatis.type.Alias;
 public class Cartitem implements Serializable{
 	private Integer id;
 	private String name;
+	private String imagepath;
+	private String author;
 	private Double price;
 	private Double dangdangprice;
 	private Integer amount;
 	private String status;
 	public Cartitem(){}
-	public Cartitem(Integer id, String name, Double price,
+	public Cartitem(Integer id, String name,String imagepath, String author, Double price,
 			Double dangdangprice, Integer amount, String status) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.imagepath = imagepath;
+		this.author = author;
 		this.price = price;
 		this.dangdangprice = dangdangprice;
 		this.amount = amount;
@@ -33,6 +37,18 @@ public class Cartitem implements Serializable{
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getImagepath() {
+		return imagepath;
+	}
+	public void setImagepath(String imagepath) {
+		this.imagepath = imagepath;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	public Double getPrice() {
 		return price;
@@ -60,9 +76,10 @@ public class Cartitem implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Cartitem [id=" + id + ", name=" + name + ", price=" + price
-				+ ", dangdangprice=" + dangdangprice + ", amount=" + amount
-				+ ", status=" + status + "]";
+		return "Cartitem [id=" + id + ", name=" + name +", imagepath="
+		+ imagepath + ", author=" + author+", price=" + price
+		+ ", dangdangprice=" + dangdangprice + ", amount=" + amount
+		+ ", status=" + status + "]";
 	}
 	
 }

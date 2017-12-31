@@ -48,7 +48,7 @@
 	<package name='address' namespace='/address' extends='struts-default'>
 		<action name='AddressAction_*' class='zhoujiuri.action.AddressAction' method='{1}'>
 			<result name='showaddress' type='chain'>AddressAction_showAddress</result>
-			<result name='address'>/order/addressForm1.jsp</result>
+			<result name='address'>/order/addressForm.jsp</result>
 		</action>
 	</package>
 </struts>

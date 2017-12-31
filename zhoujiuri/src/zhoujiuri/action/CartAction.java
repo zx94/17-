@@ -124,6 +124,8 @@ public class CartAction extends ActionSupport {
 			cartitem.setId(productid);
 			cartitem.setName(product.getName());
 			cartitem.setPrice(product.getPrice());
+			cartitem.setImagepath(product.getImagepath());
+			cartitem.setAuthor(product.getAuthor());
 			cartitem.setDangdangprice(product.getDangdangprice());
 			cartitem.setAmount(1);
 			cartitem.setStatus("yes");
@@ -137,6 +139,8 @@ public class CartAction extends ActionSupport {
 			// 设置购物车参数
 			cartitem.setId(productid);
 			cartitem.setName(product.getName());
+			cartitem.setImagepath(product.getImagepath());
+			cartitem.setAuthor(product.getAuthor());
 			cartitem.setPrice(product.getPrice());
 			cartitem.setDangdangprice(product.getDangdangprice());
 			cartitem.setAmount(1);
@@ -155,14 +159,8 @@ public class CartAction extends ActionSupport {
 			valueStack.setValue("#session.cart", cart);
 
 		}
-		//return "showcart";// 跳转到添加成功页面/CartAction_showCart
-		//Thread.sleep(3000);
-		HttpServletResponse response = ServletActionContext.getResponse();
-		PrintWriter writer = response.getWriter();
-		writer.print("ok");
-		writer.flush();
-		writer.close();
-		return null;
+		Thread.sleep(400);
+		return "showcart";// 跳转到添加成功页面/CartAction_showCart
 	}
 
 	// 3.删除购物车

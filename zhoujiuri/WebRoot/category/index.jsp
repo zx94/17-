@@ -6,14 +6,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <!DOCTYPE html>
 <html>
-<head>
-<!-- //CSS引用 -->
-<jsp:include page="../user/referenceCss.jsp"/>
-</head>
 <body>
 	<!-- //头部 -->
 	<jsp:include page="../user/header.jsp" />
-	
+
 	<!-- /banner_bottom_agile_info -->
 	<div class="page-head_agile_info_w3l">
 		<div class="container">
@@ -25,9 +21,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="agile_inner_breadcrumb">
 
 					<ul class="w3_short">
-						<li><a href="../main/index.jsp">主页</a><i>|</i>
+						<li><a href="../main/index.jsp">主页</a><i>|</i></li>
+						<li><s:property value='category.name' />
 						</li>
-						<li><s:property value='category.name' /></li>
 					</ul>
 				</div>
 			</div>
@@ -64,13 +60,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<h4>
 									<a
 										href="<s:url value='/product/ProductAction_showProductById'/>?proid=<s:property value='id'/>"><s:property
-											value='name' />
-									</a>
+											value='name' /> </a>
 								</h4>
 								<div class="info-product-price">
 									<span class="item_price">￥<s:property
-											value='dangdangprice' />
-									</span>
+											value='dangdangprice' /> </span>
 									<del>
 										￥
 										<s:property value='price' />
@@ -78,22 +72,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</div>
 								<div
 									class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" /> <input
-												type="hidden" name="add" value="1" /> <input type="hidden"
-												name="business" value=" " /> <input type="hidden"
-												name="item_name" value="<s:property value='name' />" /> <input
-												type="hidden" name="amount"
-												value="<s:property value='price' />" /> <input
-												type="hidden" name="discount_amount"
-												value="<s:property value='price-dangdangprice' />" />
-											<input type="hidden" name="currency_code" value="CNY" /> <input
-												type="hidden" name="return" value=" " /> <input
-												type="hidden" name="cancel_return" value=" " /> <input
-												type="submit" name="submit" value="添加购物车" class="button" />
-										</fieldset>
-									</form>
+									<a title="购买" href="javascript:void(0)" class="buy"
+										onclick="location='${pageContext.request.contextPath}/cart/CartAction_addCart?productid=<s:property value="id"/>'">
+										<input type="submit" name="submit" value="添加购物车"
+										class="button" /> </a>
 								</div>
 							</div>
 						</div>
@@ -108,8 +90,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- //尾部 -->
 	<jsp:include page="../user/foot.jsp" />
 
-	<!-- //Js引用-->
-    <jsp:include page="../user/referenceJs.jsp" />
 </body>
 </html>
 

@@ -106,8 +106,6 @@
 							</li>
 							<li><a href="../category/CategoryAction_showProductByCategory?pid=4&cid=4&currentPage=1">啤酒</a>
 							</li>
-							<li><a href="<s:url value='../category/CategoryAction_showProductByCategory'/>?pid=1&cid=1&currentPage=1">联系我</a>
-							</li>
 						</ul>
 					</div>
 
@@ -195,4 +193,6 @@
 			</p>
 	</div>
 	<!-- //footer -->
+	<!-- //Js引用-->
+    <jsp:include page="../user/referenceJs.jsp" />
 

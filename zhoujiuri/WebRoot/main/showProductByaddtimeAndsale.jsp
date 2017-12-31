@@ -46,20 +46,10 @@
 					</div>
 					<div
 						class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-						<form action="#" method="post">
-							<fieldset>
-								<input type="hidden" name="cmd" value="_cart" /> 
-								<input type="hidden" name="add" value="1" /> 
-								<input type="hidden" name="business" value=" " /> 
-								<input type="hidden" name="item_name" value=<s:property value='name' /> /> 
-								<input type="hidden" name="amount" value="<s:property value='price' />" /> 
-								<input type="hidden" name="discount_amount" value="<s:property value='product.price-product.dangdangprice' />">
-								<input type="hidden" name="currency_code" value="CNY" /> 
-								<input type="hidden" name="return" value=" " /> 
-								<input type="hidden" name="cancel_return" value=" " /> 
-								<input type="submit" name="submit" value="添加购物车" class="button" />
-							</fieldset>
-						</form>
+						<a title="购买" href="javascript:void(0)" class="buy"
+							onclick="location='${pageContext.request.contextPath}/cart/CartAction_addCart?productid=<s:property value="id"/>'">
+							<input type="submit" name="submit" value="添加购物车" class="button" />
+						</a>
 					</div>
 
 				</div>

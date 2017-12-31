@@ -9,11 +9,6 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-<!-- //CSS引用 -->
-<jsp:include page="../user/referenceCss.jsp"/>
-
-</head>
 <body>
 	<!-- //头部 -->
 	<jsp:include page="../user/header.jsp"/>
@@ -210,7 +205,5 @@
     <!-- //尾部 -->
     <jsp:include page="../user/foot.jsp" />
 
-    <!-- //Js引用-->
-    <jsp:include page="../user/referenceJs.jsp" />
 </body>
 </html>

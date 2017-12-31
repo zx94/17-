@@ -1,86 +1,71 @@
 <%@page contentType="text/html;charset=utf-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>生成订单 - 当当网</title>
-		<link href="../css/login.css" rel="stylesheet" type="text/css" />
-		<link href="../css/page_bottom.css" rel="stylesheet" type="text/css" />
-	</head>
-	<body>
-		<%@include file="head1.jsp"%>
-		<div class="login_step">
-			生成订单骤:
-			<span class="red_bold">1.确认订单</span> &gt; 2.填写送货地址 &gt; 3.订单成功
-		</div>
-		<div class="fill_message">
+<!DOCTYPE html>
+<html lang="en">
 
-			<table class="tab_login">
-				<tr>
-					<td valign="top" class="w1" style="text-align: left">
-						<b>序号</b>
-					</td>
-					<td valign="top" class="w1" style="text-align: left">
-						<b>商品名称</b>
-					</td>
-					<td valign="top" class="w1" style="text-align: left">
-						<b>商品单价</b>
-					</td>
-					<td valign="top" class="w1" style="text-align: left">
-						<b>商品数量</b>
-					</td>
-					<td valign="top" class="w1" style="text-align: left">
-						<b>小计</b>
-					</td>
-				</tr>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- //顶部 -->
+    <jsp:include page="../user/header.jsp"/>
+	
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 
-				<!-- 订单开始 -->
-				<s:iterator value="#session.cart.values()" var="item" status="status">
+</head>
+
+<body>
+	
+	<section class="shopping-cart">
+		<!-- .shopping-cart -->
+		<div class="container">
+			<div class="col-md-12">
+				<h2>确认订单</h2>
+				<table>
+					<tr>
+						<th></th>
+						<th>产品名称</th>
+						<th>品牌</th>
+						<th>价格</th>
+						<th>数量</th>
+						<th>总价</th>
+					</tr>
+					<s:iterator value="#session.cart.values()" var="item" status="status">
 				<s:if test="status=='yes'">
 					<tr>
-						<td valign="top">
-							<s:property value="#status.index+1" />
-						</td>
-						<td valign="top">
-							<s:property value="name" />
-						</td>
-						<td valign="top">
-							<s:property value="dangdangprice" />
-						</td>
-						<td valign="top">
-							<s:property value="amount" />
-						</td>
-						<td valign="top">
-							<s:property value="amount*dangdangprice" />
-						</td>
+						<td><center><img src="${pageContext.request.contextPath}/user/images/<s:property value='imagepath'/>" alt="13" style="height:90px"></center></td>
+						<td><s:property value='name' /></td>
+						<td><s:property value='author' /></td>
+						<td><strong><s:property value='dangdangprice'/></strong></td>
+						<td><s:property value='amount'/></td>
+						<td><strong><s:property value='amount*dangdangprice'/></strong></td>
 					</tr>
 					</s:if>
 					</s:iterator>
-					
-				<!-- 订单结束 -->
-				<tr>
-					<td valign="top" class="w1" style="text-align: left" colspan="5">
-						<b>总价￥<s:property value='totalaccount'/></b>
-					</td>
-				</tr>
-			</table> 
-			<br />
-			<br />
-			<br />
-			<div class="login_in">
-
-				<input id="btnClientRegister" class="button_1" name="submit"
-					type="button" value="取消" onclick="location='${pageContext.request.contextPath}/main/index.jsp'"/>
+				</table>
+				<div class="col-sm-6 col-md-6">
+					<a href="${pageContext.request.contextPath}/main/index.jsp" class="button red">取消</a>
+				</div>
+				<div class="col-sm-6 col-md-6 text-right">
 				<s:if test="#session.user==null">
-					<input id="btnClientRegister" class="button_1" name="submit" type="button" value="下一步"  onclick="location='${pageContext.request.contextPath}/login/index.jsp'"/>
+					<input id="btnClientRegister" class="button" name="submit" type="button" value="下一步"  onclick="location='${pageContext.request.contextPath}/login/login.jsp'"/>
 				</s:if>
 				<s:else>
-					<input id="btnClientRegister" class="button_1" name="submit" type="button" value="下一步"  onclick="location='${pageContext.request.contextPath}/address/AddressAction_showAddress'"/>
+					<input id="btnClientRegister" class="button" name="submit" type="button" value="下一步"  onclick="location='${pageContext.request.contextPath}/address/AddressAction_showAddress'"/>
 				</s:else>
+				</div>
 			</div>
-
 		</div>
-		<%@include file="foot1.jsp"%>
-	</body>
+		<!-- /.shopping-cart -->
+	</section>
+	
+	
+	    <!-- //底部 -->
+      <jsp:include page="../user/foot.jsp"/>
+	
+</body>
+
 </html>
 
