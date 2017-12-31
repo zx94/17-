@@ -78,8 +78,8 @@ public class ProductService implements IProductService {
 					productCount += i;
 				}
 				// ③获得总页数
-				Integer pageCount = productCount % 5 == 0 ? productCount / 5
-						: (productCount / 5) + 1;
+				Integer pageCount = productCount % 9 == 0 ? productCount / 9
+						: (productCount / 9) + 1;
 				// ④分页查询
 				if (currentPage == 0)
 					currentPage = 1;
@@ -93,13 +93,13 @@ public class ProductService implements IProductService {
 						.selectProductCount(Arrays.asList(cid));
 				Integer productCount = count.get(0);
 				// ②获得总页数
-				Integer pageCount = productCount % 5 == 0 ? productCount / 5
-						: (productCount / 5) + 1;
+				Integer pageCount = productCount % 9 == 0 ? productCount / 9
+						: (productCount / 9) + 1;
 				// ③分页查询
 				if (currentPage == 0)
 					currentPage = 1;
 				List<Product> product = dao.selectProductByCategory(
-						Arrays.asList(cid), currentPage, 5);
+						Arrays.asList(cid), currentPage, 9);
 				map.put("pageCount", pageCount);
 				map.put("product", product);
 			}
