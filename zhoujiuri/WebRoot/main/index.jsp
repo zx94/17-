@@ -103,7 +103,7 @@
 			</h3>
 
 			<div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
-				<a href="womens.html">
+				<a href="<s:url value='/category/CategoryAction_showProductByCategory'/>?pid=2&cid=2&currentPage=1">
 					<div class="bb-left-agileits-w3layouts-inner grid">
 						<figure class="effect-roxy">
 							<img src="../user/images/bb1.jpg" alt=" " class="img-responsive" style="height:850px"/>
@@ -117,7 +117,7 @@
 					</div> </a>
 			</div>
 			<div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
-				<a href="mens.html">
+				<a href="<s:url value='/category/CategoryAction_showProductByCategory'/>?pid=4&cid=4&currentPage=1">
 					<div class="bb-middle-agileits-w3layouts grid">
 						<figure class="effect-roxy">
 							<img src="../user/images/bottom3.jpg" alt=" " class="img-responsive" style="height:345px"/>
@@ -128,7 +128,7 @@
 								<p>Upto 55%</p>
 							</figcaption>
 						</figure>
-					</div> </a> <a href="mens.html">
+					</div> </a> <a href="<s:url value='/category/CategoryAction_showProductByCategory'/>?pid=3&cid=3&currentPage=1">
 					<div class="bb-middle-agileits-w3layouts forth grid">
 						<figure class="effect-roxy">
 							<img src="../user/images/bottom4.jpg" alt=" " class="img-responsive" style="height:490px">
@@ -147,14 +147,14 @@
 	<!--/grids-->
 	<div class="agile_last_double_sectionw3ls">
 		<div class="col-md-6 multi-gd-img multi-gd-text ">
-			<a href="womens.html"><img src="../user/images/bot_1.jpg" alt=" ">
+			<a href="<s:url value='/category/CategoryAction_showProductByCategory'/>?pid=4&cid=4&currentPage=1""><img src="../user/images/bot_1.jpg" alt=" ">
 				<h4>
 					Flat <span>50%</span> offer
 				</h4> </a>
 
 		</div>
 		<div class="col-md-6 multi-gd-img multi-gd-text ">
-			<a href="womens.html"><img src="../user/images/bot_2.jpg" alt=" ">
+			<a href="<s:url value='/category/CategoryAction_showProductByCategory'/>?pid=1&cid=1&currentPage=1""><img src="../user/images/bot_2.jpg" alt=" ">
 				<h4>
 					Flat <span>50%</span> offer
 				</h4> </a>
@@ -193,10 +193,10 @@
 	<div class="sale-w3ls">
 		<div class="container">
 			<h6>
-				We Offer Flat <span>40%</span> Discount
+				高达 <span>40%</span> 的优惠
 			</h6>
 
-			<a class="hvr-outline-out button2" href="single.html">Shop Now </a>
+			<a class="hvr-outline-out button2" href="<s:url value='/category/CategoryAction_showProductByCategory'/>?pid=1&cid=1&currentPage=1">开始购物 </a>
 		</div>
 	</div>
 	<!-- //we-offer -->

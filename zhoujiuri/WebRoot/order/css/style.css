@@ -3643,8 +3643,8 @@ footer {
 }
 .shopping-cart .button {
 	background: rgb(47, 218, 184) none repeat scroll 0 0;
-	border: 2px solid;
-	color: rgb(255, 255, 255);
+	border: 0px solid;
+	color: rgb(0, 0, 0);
 	letter-spacing: 1.2px;
 	margin-left: 20px;
 	font-weight: 500;
@@ -3652,8 +3652,8 @@ footer {
 }
 .shopping-cart .button.red {
 	background: rgb(47, 218, 184) none repeat scroll 0 0;
-	border: 2px solid;
-	color: rgb(255, 255, 255);
+	border: 0px solid;
+	color: rgb(0, 0, 0);
 	font-weight: 500;
 	margin-left: 0;
 }

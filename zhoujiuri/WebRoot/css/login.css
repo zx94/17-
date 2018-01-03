@@ -1,7 +1,7 @@
-/*注册登陆类样式 begin:07.6.26;author:sunny*/
+/*娉ㄥ唽鐧婚檰绫绘牱寮�begin:07.6.26;author:sunny*/
 *{padding:0;margin:0}
 img{border:0}
-body{font-family: "宋体", Arial, Helvetica, sans-serif; padding:0 8px 0 10px; width:985px; margin:auto; font-size:12px; background:#fff; color:#414141}
+body{font-family: "瀹嬩綋", Arial, Helvetica, sans-serif; padding:0 8px 0 10px; width:985px; margin:auto; font-size:12px; background:#fff; color:#414141}
 input{vertical-align: middle; font-size:12px}
 a:link { color:#0041D3; text-decoration:none}
 a:visited{color:#0041D3; text-decoration:none}
@@ -10,7 +10,6 @@ a:active{ color:#bc2931; text-decoration:underline}
 .t1 a:link,.t1 a:visited{ color:#0041D3; text-decoration:underline}
 .t1 a:hover{ color:#ff7000; text-decoration:underline}
 .t1 a:active{ color:#bc2931; text-decoration:underline}
-
 .red_bold{ color:#ff0000; font-weight:bold}
 .red{ color:#ff0000}
 .price_old{ text-decoration:line-through}
@@ -25,7 +24,7 @@ a:active{ color:#bc2931; text-decoration:underline}
 .fill_message h2{ font-size:14px;color:#ff0000; padding-bottom:10px}
 .fill_message .tab_login{ width:758px; border-collapse:collapse;}
 .fill_message .tab_login td{ padding:15px 5px 13px 5px; border:solid 1px #dadada}
-.fill_message .tab_login .w1{ width:160px; padding-right:0; text-align:right; font-size:14px; background-color:#e8fbff}
+.fill_message .tab_login .w1{ width:160px; padding-right:0; text-align:right; font-size:14px; background-color:#ffffff}
 .fill_message .tab_login .change_c{ background-color:#ffece8}
 
 .fill_message .tab_login .text_input{ width:170px; height:17px; padding:3px 2px 0 1px; border:solid 1px #a8a6ab; margin-left:20px; float:left}/*07.8.7modify*/
@@ -86,11 +85,11 @@ a:active{ color:#bc2931; text-decoration:underline}
 .skim .merch .m_list h6{ font-size:12px; font-weight:normal; line-height:16px; padding-top:8px;height:32px}
 .skim .merch .m_list p{ padding-top:4px}
 .skim .merch .empty_box{ clear:left}
-/*******登录部分的样式********/
+/*******鐧诲綍閮ㄥ垎鐨勬牱寮�*******/
 .enter_part{ width:760px; height:360px; padding-top:15px; padding-bottom:45px; margin:auto}
-.enter_part .introduce{ width:430px; height:180px; margin-top:65px; float:left} /* 2007-08-14修改登陆branding width 由410 改为 430*/
+.enter_part .introduce{ width:430px; height:180px; margin-top:65px; float:left} /* 2007-08-14淇敼鐧婚檰branding width 鐢�10 鏀逛负 430*/
 .enter_part .introduce img{ margin-bottom:10px}
-.enter_part .introduce ul{ list-style:none; line-height:18px; border-top:solid 1px #bab9b9; padding:10px 0 0 2px} /* 2007-08-14修改登陆branding width406 去掉*/
+.enter_part .introduce ul{ list-style:none; line-height:18px; border-top:solid 1px #bab9b9; padding:10px 0 0 2px} /* 2007-08-14淇敼鐧婚檰branding width406 鍘绘帀*/
 .enter_part .introduce ul li{ background:url(../images/bj_d_black.gif) no-repeat left 7px; padding-left:12px}
 .enter_part .introduce ul .bj_none{ background:none; padding-bottom:15px; color:#757575}
 .enter_part .enter_in{ width:279px; height:340px; background:url(../images/bj_enter_bottom.gif) no-repeat bottom; float:right}
@@ -112,7 +111,7 @@ a:active{ color:#bc2931; text-decoration:underline}
 .user_new .set_up{ padding-top:18px; font-size:12px; text-align:right}
 
 
-/*****************注册登录帮助部分begin:07.8.3********************/
+/*****************娉ㄥ唽鐧诲綍甯姪閮ㄥ垎begin:07.8.3********************/
 .empty_box_both{ clear:both; height:1px; overflow:hidden}
 .login_help{ width:982px; height:28px; padding-top:18px; border-bottom:solid 1px #c2d2e2}
 .help_content{ width:952px; padding:15px}
